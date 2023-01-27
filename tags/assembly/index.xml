@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Assembly on GitToKnow</title>
+    <link>https://ayg0.github.io/gettoknow.github.io/tags/assembly/</link>
+    <description>Recent content in Assembly on GitToKnow</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 24 Jan 2023 11:57:38 +0100</lastBuildDate><atom:link href="https://ayg0.github.io/gettoknow.github.io/tags/assembly/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>IntroToCA</title>
+      <link>https://ayg0.github.io/gettoknow.github.io/posts/introtoca/</link>
+      <pubDate>Tue, 24 Jan 2023 11:57:38 +0100</pubDate>
+      
+      <guid>https://ayg0.github.io/gettoknow.github.io/posts/introtoca/</guid>
+      <description>Hello I welcome you to this
+Here I&amp;rsquo;ll explain how to use C
+int	main(){ int	a = 0; return (0); } </description>
+    </item>
+    
+  </channel>
+</rss>

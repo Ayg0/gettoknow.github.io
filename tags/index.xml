@@ -5,6 +5,52 @@
     <link>https://ayg0.github.io/gettoknow.github.io/tags/</link>
     <description>Recent content in Tags on GitToKnow</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language><atom:link href="https://ayg0.github.io/gettoknow.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <lastBuildDate>Fri, 27 Jan 2023 15:33:14 +0100</lastBuildDate><atom:link href="https://ayg0.github.io/gettoknow.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>C</title>
+      <link>https://ayg0.github.io/gettoknow.github.io/tags/c/</link>
+      <pubDate>Fri, 27 Jan 2023 15:33:14 +0100</pubDate>
+      
+      <guid>https://ayg0.github.io/gettoknow.github.io/tags/c/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43;</title>
+      <link>https://ayg0.github.io/gettoknow.github.io/tags/c&#43;&#43;/</link>
+      <pubDate>Fri, 27 Jan 2023 15:33:14 +0100</pubDate>
+      
+      <guid>https://ayg0.github.io/gettoknow.github.io/tags/c&#43;&#43;/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Assembly</title>
+      <link>https://ayg0.github.io/gettoknow.github.io/tags/assembly/</link>
+      <pubDate>Tue, 24 Jan 2023 11:57:38 +0100</pubDate>
+      
+      <guid>https://ayg0.github.io/gettoknow.github.io/tags/assembly/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>NIO</title>
+      <link>https://ayg0.github.io/gettoknow.github.io/tags/nio/</link>
+      <pubDate>Tue, 24 Jan 2023 11:57:38 +0100</pubDate>
+      
+      <guid>https://ayg0.github.io/gettoknow.github.io/tags/nio/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>OS</title>
+      <link>https://ayg0.github.io/gettoknow.github.io/tags/os/</link>
+      <pubDate>Tue, 24 Jan 2023 11:57:38 +0100</pubDate>
+      
+      <guid>https://ayg0.github.io/gettoknow.github.io/tags/os/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
