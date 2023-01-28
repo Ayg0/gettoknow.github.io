@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>GitToKnow</title>
-    <link>https://ayg0.github.io/gettoknow.github.io/</link>
-    <description>Recent content on GitToKnow</description>
+    <title>Compiler on GitToKnow</title>
+    <link>https://ayg0.github.io/gettoknow.github.io/tags/compiler/</link>
+    <description>Recent content in Compiler on GitToKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 27 Jan 2023 19:08:36 +0100</lastBuildDate><atom:link href="https://ayg0.github.io/gettoknow.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 27 Jan 2023 19:08:36 +0100</lastBuildDate><atom:link href="https://ayg0.github.io/gettoknow.github.io/tags/compiler/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GccCrossCompiler</title>
       <link>https://ayg0.github.io/gettoknow.github.io/posts/gcccrosscompiler/</link>
@@ -14,15 +14,6 @@
       
       <guid>https://ayg0.github.io/gettoknow.github.io/posts/gcccrosscompiler/</guid>
       <description>Cross-Compilers &amp;gt; What&amp;rsquo;s a Cross Compiler ? - A cross Compiler is simply a compiler that runs on the host platform (for example MacOS), and generate executables for the target platform (for example Windows). &amp;gt; Why we need a Cross Compiler ? - The only reason not to use a cross compiler is if you&#39;re generating executables for your own machine, where both the host and the targets are the same, and it&#39;s not the case for our projects now.</description>
-    </item>
-    
-    <item>
-      <title>BasicsOfBasics_OsDev</title>
-      <link>https://ayg0.github.io/gettoknow.github.io/posts/basicsofbasics_osdev/</link>
-      <pubDate>Fri, 27 Jan 2023 18:30:30 +0100</pubDate>
-      
-      <guid>https://ayg0.github.io/gettoknow.github.io/posts/basicsofbasics_osdev/</guid>
-      <description>Introduction: In a journey to understand how Operating systems works, I&#39;ll do an attempt of making a minimalistic operating system. This is the first blog that will discuss the main steps I followed to have it at this state. And also provide All resources I&#39;ve used. Resources: OsDevWiki EMPTY EMPTY EMPTY STEPS: Building a Cross-Compiler </description>
     </item>
     
   </channel>
