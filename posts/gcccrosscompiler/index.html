@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Taha Ed-dafili" />
     <meta name="description" content="" />
-    <link rel="stylesheet" href="/gettoknow.github.io/css/main.min.8527fdc808b1b473eaf73c1f45f0d0f88acc90a617fadc4ee27c45c3e3ca05b4.css" />
+    <link rel="stylesheet" href="/gettoknow.github.io/css/main.min.145b13fd48627bdc1084ecf55c09b745e980bf92bccb5d509c71ab9dad6358d6.css" />
 
     
     <meta name="twitter:card" content="summary"/>
@@ -26,7 +26,7 @@
   </head>
   <body>
     <header class="app-header">
-      <a href="https://ayg0.github.io/gettoknow.github.io/"><img class="app-header-avatar" src="/gettoknow.github.io/avatar.jpeg" alt="Taha Ed-dafili" /></a>
+      <a href="https://ayg0.github.io/gettoknow.github.io/"><img class="app-header-avatar" src="/gettoknow.github.io/ProgrammerHood.jpeg" alt="Taha Ed-dafili" /></a>
       <span class="app-header-title">GitToKnow</span>
       <nav class="app-header-menu">
           <a class="app-header-menu-item" href="/gettoknow.github.io/">Home</a>
@@ -74,7 +74,7 @@
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          1 min read
+          2 min read
         </div>
         <div>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
@@ -94,7 +94,37 @@
 <h2 id="-why-we-need-a-cross-compiler-">&gt; Why we need a Cross Compiler ?</h2>
 <pre><code>	- The only reason not to use a cross compiler is if you're generating executables for your own machine, where both the host and the targets are the same, and it's not the case for our projects now.
 </code></pre>
+<h2 id="-whats-out-target-platform">&gt; What&rsquo;s out target platform:</h2>
+<pre><code>I may change this in the future but for now it's will be the i686-elf:
+
+	- Architecture i686 indicates that the target machine uses 32-bit x86 architecture.
+	- ELF (Executable and linkable Format) is a standard file format for executables, object code, and shared libraries.
+	- most important part is that we've specified that the target machine does not have a complete operating system.
+</code></pre>
 <h2 id="-how-to-build-one-">&gt; How to build one ?</h2>
+<pre><code>	- Building a cross compilers varies from an OS to an other, I'm going to build this GCC-CrossCompiler in MacOs even tho building in in linux maybe easier because of the dependancies That are pre-installed there.
+
+	-&gt; Step 1:
+		- Installing HomeBrew which will be the package manager we will use to install all the necessary tools.
+
+	-&gt; Step 2:
+		- Installing dependancies simply use:
+			$&gt; brew install binutils bison flex gmp mpfr libmpc isl
+
+	-&gt; Step 3:
+		- Downloding and extracting the GCC source code:
+			$&gt; git clone git://gcc.gnu.org/git/gcc.git /Example/Disired/Working/Directory/gcc
+
+	-&gt; Step 4:
+		- Configuring GCC source code:
+			$&gt; ./configure --prefix=/WhereToInstall/i686-elf --target=i686-elf --disable-nls --enable-languages=c,c++ --without-headers --with-gmp=$(brew --prefix gmp) --with-mpfr=$(brew --prefix mpfr) --with-mpc=$(brew --prefix libmpc)
+
+	-&gt; Step 5:
+		- build and install the cross-compiler:
+			$&gt; make all-gcc ; make install-gcc
+
+	- If everything went correctly you should be able to use &quot;i686-elf-gcc -v&quot; command.
+</code></pre>
 
     </div>
     <div class="post-footer">
