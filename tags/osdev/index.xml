@@ -6,7 +6,25 @@
     <description>Recent content in OsDev on GetToKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 27 Jan 2023 19:08:36 +0100</lastBuildDate><atom:link href="https://ayg0.github.io/gettoknow.github.io/tags/osdev/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 31 Jan 2023 18:30:36 +0100</lastBuildDate><atom:link href="https://ayg0.github.io/gettoknow.github.io/tags/osdev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>BootingSequence</title>
+      <link>https://ayg0.github.io/gettoknow.github.io/posts/bootingsequence/</link>
+      <pubDate>Tue, 31 Jan 2023 18:30:36 +0100</pubDate>
+      
+      <guid>https://ayg0.github.io/gettoknow.github.io/posts/bootingsequence/</guid>
+      <description>Welcome from now on, we will start the real work. Starting from the beginning: =&amp;gt; Booting your computer: Booting is a startup sequence that starts the Operating system in your computer once it&amp;#39;s turned on. The boot sequence is the initial set of steps/instructions that your computer perform when it&amp;#39;s swiched on. =&amp;gt; CPU: CPU (The Central Proccecing Unit) is the brain of our computer, it&amp;#39;s the piece that handles all the instructions and operations you&amp;#39;ll need to open youtube and watch some cat videos (The GPU plays a role when it comes to media .</description>
+    </item>
+    
+    <item>
+      <title>OsDevKnowledge</title>
+      <link>https://ayg0.github.io/gettoknow.github.io/posts/osdevknowledge/</link>
+      <pubDate>Tue, 31 Jan 2023 17:56:29 +0100</pubDate>
+      
+      <guid>https://ayg0.github.io/gettoknow.github.io/posts/osdevknowledge/</guid>
+      <description>What and Why ? Knowledge that will be and is really helpful and needed as an OsDev, don&amp;#39;t worry it may look like a lot but ... there is no but it is a lot. =&amp;raquo; Boot Sequence </description>
+    </item>
+    
     <item>
       <title>GccCrossCompiler</title>
       <link>https://ayg0.github.io/gettoknow.github.io/posts/gcccrosscompiler/</link>
@@ -22,7 +40,7 @@
       <pubDate>Fri, 27 Jan 2023 18:30:30 +0100</pubDate>
       
       <guid>https://ayg0.github.io/gettoknow.github.io/posts/basicsofbasics_osdev/</guid>
-      <description>Introduction: In a journey to understand how Operating systems works, I&#39;ll do an attempt of making a minimalistic operating system. This is the first blog that will discuss the main steps I followed to have it at this state. And also provide All resources I&#39;ve used. Resources: OsDevWiki EMPTY EMPTY EMPTY STEPS: Building a Cross-Compiler </description>
+      <description>Introduction: In a journey to understand how Operating systems works, I&#39;ll do an attempt of making a minimalistic operating system. This is the first blog that will discuss the main steps I followed to have it at this state. And also provide All resources I&#39;ve used. Resources: OsDevWiki Awesome Os EMPTY EMPTY STEPS: Building a Cross-Compiler Needed Knowledge to Procceed !! </description>
     </item>
     
   </channel>

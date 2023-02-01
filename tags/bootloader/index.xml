@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>BootLoader on GetToKnow</title>
+    <link>https://ayg0.github.io/gettoknow.github.io/tags/bootloader/</link>
+    <description>Recent content in BootLoader on GetToKnow</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 31 Jan 2023 18:30:36 +0100</lastBuildDate><atom:link href="https://ayg0.github.io/gettoknow.github.io/tags/bootloader/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>BootingSequence</title>
+      <link>https://ayg0.github.io/gettoknow.github.io/posts/bootingsequence/</link>
+      <pubDate>Tue, 31 Jan 2023 18:30:36 +0100</pubDate>
+      
+      <guid>https://ayg0.github.io/gettoknow.github.io/posts/bootingsequence/</guid>
+      <description>Welcome from now on, we will start the real work. Starting from the beginning: =&amp;gt; Booting your computer: Booting is a startup sequence that starts the Operating system in your computer once it&amp;#39;s turned on. The boot sequence is the initial set of steps/instructions that your computer perform when it&amp;#39;s swiched on. =&amp;gt; CPU: CPU (The Central Proccecing Unit) is the brain of our computer, it&amp;#39;s the piece that handles all the instructions and operations you&amp;#39;ll need to open youtube and watch some cat videos (The GPU plays a role when it comes to media .</description>
+    </item>
+    
+  </channel>
+</rss>
