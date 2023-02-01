@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>BasicsOfBasics_OsDev // GetToKnow</title>
+    <title>BIOS // GetToKnow</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
     <meta name="generator" content="Hugo 0.110.0">
@@ -12,15 +12,15 @@
 
     
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="BasicsOfBasics_OsDev"/>
-<meta name="twitter:description" content="Introduction: In a journey to understand how Operating systems works, I&#39;ll do an attempt of making a minimalistic operating system. This is the first blog that will discuss the main steps I followed to have it at this state. And also provide All resources I&#39;ve used. Resources: OsDevWiki Awesome Os EMPTY EMPTY STEPS: Building a Cross-Compiler Needed Knowledge to Procceed !! Boot Sector "/>
+<meta name="twitter:title" content="BIOS"/>
+<meta name="twitter:description" content="BIOS: you need int 0x10 not int 0x13 The BIOS: =&gt; What&#39;s the BIOS: BIOS (Basic Input/Output System) is a type of *firmware that provides an interface between computer&#39;s hardware and software (OS), it&#39;s stored on a *non-volatile memory chip on the mother board. The BIOS is the First program loaded When the computer is powered on, and it&#39;s responsible for performing a series of system checks and initializations. =&gt; BIOS ?"/>
 
-    <meta property="og:title" content="BasicsOfBasics_OsDev" />
-<meta property="og:description" content="Introduction: In a journey to understand how Operating systems works, I&#39;ll do an attempt of making a minimalistic operating system. This is the first blog that will discuss the main steps I followed to have it at this state. And also provide All resources I&#39;ve used. Resources: OsDevWiki Awesome Os EMPTY EMPTY STEPS: Building a Cross-Compiler Needed Knowledge to Procceed !! Boot Sector " />
+    <meta property="og:title" content="BIOS" />
+<meta property="og:description" content="BIOS: you need int 0x10 not int 0x13 The BIOS: =&gt; What&#39;s the BIOS: BIOS (Basic Input/Output System) is a type of *firmware that provides an interface between computer&#39;s hardware and software (OS), it&#39;s stored on a *non-volatile memory chip on the mother board. The BIOS is the First program loaded When the computer is powered on, and it&#39;s responsible for performing a series of system checks and initializations. =&gt; BIOS ?" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://ayg0.github.io/gettoknow.github.io/posts/basicsofbasics_osdev/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2023-01-27T18:30:30+01:00" />
-<meta property="article:modified_time" content="2023-01-27T18:30:30+01:00" />
+<meta property="og:url" content="https://ayg0.github.io/gettoknow.github.io/posts/bios/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-02-01T18:44:54+01:00" />
+<meta property="article:modified_time" content="2023-02-01T18:44:54+01:00" />
 
 
   </head>
@@ -60,21 +60,21 @@
       
   <article class="post">
     <header class="post-header">
-      <h1 class ="post-title">BasicsOfBasics_OsDev</h1>
+      <h1 class ="post-title">BIOS</h1>
       <div class="post-meta">
         <div>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
   <title>calendar</title>
   <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
 </svg>
-          Jan 27, 2023
+          Feb 1, 2023
         </div>
         <div>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          1 min read
+          2 min read
         </div>
         <div>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
@@ -82,35 +82,28 @@
   <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line>
 </svg>
               <a class="tag" href="https://ayg0.github.io/gettoknow.github.io/tags/osdev/">OsDev</a>
-              <a class="tag" href="https://ayg0.github.io/gettoknow.github.io/tags/barebones/">BareBones</a>
+              <a class="tag" href="https://ayg0.github.io/gettoknow.github.io/tags/bios/">BIOS</a>
         </div>
       </div>
     </header>
     <div class="post-content">
-      <h1 id="introduction">Introduction:</h1>
-<pre><code>In a journey to understand how Operating systems works, I'll do an attempt of making a minimalistic operating system.  
-This is the first blog that will discuss the main steps I followed to have it at this state. And also provide All resources I've used.
+      <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C" data-lang="C"><span style="display:flex;"><span>	BIOS: you need <span style="color:#66d9ef">int</span> <span style="color:#ae81ff">0x10</span> not <span style="color:#66d9ef">int</span> <span style="color:#ae81ff">0x13</span>
+</span></span></code></pre></div><h1 id="the-bios">The BIOS:</h1>
+<h3 id="-whats-the-bios"><code>=&gt; What's the BIOS:</code></h3>
+<pre tabindex="0"><code>	BIOS (Basic Input/Output System) is a type of *firmware that provides an interface between computer&#39;s hardware and software (OS), it&#39;s stored on a *non-volatile memory chip on the mother board.
+	The BIOS is the First program loaded When the computer is powered on, and it&#39;s responsible for performing a series of system checks and initializations.
+</code></pre><h3 id="-bios--why-bother-"><code>=&gt; BIOS ? Why bother ?:</code></h3>
+<pre tabindex="0"><code>	The BIOS and the understanding of it, plays a big role in the early stages of the Os Dev journey. Some of the most important tasks the BIOS perform are:
+		- POST: The BIOS perform a series of checks to verify that the hardware is working correctly.
+		
+		- Boot Sequence: The BIOS determines the boot device and load the boot loader into memory, and passes control to it.
+		
+		- Configuration: The BIOS allow us to change some options such as the date/time, the boot sequence and memory settings.
+		
+		- Input/Output Services: The BIOS provides basic input/output services (Reading from the keyboard and printing to the screen).
+</code></pre><h3 id="-bios--whats-about-uefi"><code>=&gt; BIOS ? What's about UEFI:</code></h3>
+<pre tabindex="0"><code>	UEFI (United Extensible Firmware Interface), has replaced the BIOS in newer computers, because it provides a more advanced interface for configuring the system (also you can use your mouse), still BIOS is all what we need no fancy stuff and well I don&#39;t think that I&#39;ll need a modern computer to run my OS anyway.
 </code></pre>
-<h2 id="resources">Resources:</h2>
-<ul>
-<li><a href="https://wiki.osdev.org/Main_Page/">OsDevWiki</a></li>
-<li><a href="https://github.com/jubalh/awesome-os">Awesome Os</a></li>
-<li>EMPTY</li>
-<li>EMPTY</li>
-</ul>
-<h2 id="steps">STEPS:</h2>
-<ul>
-<li>
-<h3 id="building-a-cross-compilerhahahugoshortcode-s0-hbhb"><a href="https://ayg0.github.io/gettoknow.github.io/posts/gcccrosscompiler/">Building a Cross-Compiler</a></h3>
-</li>
-<li>
-<h3 id="needed-knowledge-to-procceed-hahahugoshortcode-s1-hbhb"><a href="https://ayg0.github.io/gettoknow.github.io/posts/osdevknowledge/">Needed Knowledge to Procceed !!</a></h3>
-</li>
-<li>
-<h3 id="boot-sectorhahahugoshortcode-s2-hbhb"><a href="https://ayg0.github.io/gettoknow.github.io/posts/bootsector/">Boot Sector</a></h3>
-</li>
-</ul>
-
     </div>
     <div class="post-footer">
       

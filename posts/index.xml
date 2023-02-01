@@ -6,7 +6,34 @@
     <description>Recent content in Posts on GetToKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 31 Jan 2023 18:30:36 +0100</lastBuildDate><atom:link href="https://ayg0.github.io/gettoknow.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 01 Feb 2023 18:45:02 +0100</lastBuildDate><atom:link href="https://ayg0.github.io/gettoknow.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OsModes</title>
+      <link>https://ayg0.github.io/gettoknow.github.io/posts/osmodes/</link>
+      <pubDate>Wed, 01 Feb 2023 18:45:02 +0100</pubDate>
+      
+      <guid>https://ayg0.github.io/gettoknow.github.io/posts/osmodes/</guid>
+      <description>Real mode ? Imaginary mode ? Real / Protected / long Modes: =&amp;gt; What are these anyway: Real mode, protected mode, and long mode are different operating modes that have been introduced in x86 architecture-based computers to provide various levels of memory access and protection, as well as other features and capabilities. =&amp;gt; So Real Mode is not ?: Real Mode is a 16-bit mode that was used in the early x86 processors, and it&amp;#39;s the mode that the computer uses ones it turns on, so even our friend the BIOS, functions in 16-bit mode.</description>
+    </item>
+    
+    <item>
+      <title>BIOS</title>
+      <link>https://ayg0.github.io/gettoknow.github.io/posts/bios/</link>
+      <pubDate>Wed, 01 Feb 2023 18:44:54 +0100</pubDate>
+      
+      <guid>https://ayg0.github.io/gettoknow.github.io/posts/bios/</guid>
+      <description>BIOS: you need int 0x10 not int 0x13 The BIOS: =&amp;gt; What&#39;s the BIOS: BIOS (Basic Input/Output System) is a type of *firmware that provides an interface between computer&amp;#39;s hardware and software (OS), it&amp;#39;s stored on a *non-volatile memory chip on the mother board. The BIOS is the First program loaded When the computer is powered on, and it&amp;#39;s responsible for performing a series of system checks and initializations. =&amp;gt; BIOS ?</description>
+    </item>
+    
+    <item>
+      <title>BootSector</title>
+      <link>https://ayg0.github.io/gettoknow.github.io/posts/bootsector/</link>
+      <pubDate>Wed, 01 Feb 2023 18:41:24 +0100</pubDate>
+      
+      <guid>https://ayg0.github.io/gettoknow.github.io/posts/bootsector/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>BootingSequence</title>
       <link>https://ayg0.github.io/gettoknow.github.io/posts/bootingsequence/</link>
@@ -22,7 +49,7 @@
       <pubDate>Tue, 31 Jan 2023 17:56:29 +0100</pubDate>
       
       <guid>https://ayg0.github.io/gettoknow.github.io/posts/osdevknowledge/</guid>
-      <description>What and Why ? Knowledge that will be and is really helpful and needed as an OsDev, don&amp;#39;t worry it may look like a lot but ... there is no but it is a lot. =&amp;raquo; Boot Sequence </description>
+      <description>What and Why ? Knowledge that will be and is really helpful and needed as an OsDev, don&amp;#39;t worry it may look like a lot but ... there is no but it is a lot. =&amp;raquo; Boot Sequence =&amp;raquo; BIOS =&amp;raquo; Real/Protected/long Modes </description>
     </item>
     
     <item>
@@ -40,7 +67,7 @@
       <pubDate>Fri, 27 Jan 2023 18:30:30 +0100</pubDate>
       
       <guid>https://ayg0.github.io/gettoknow.github.io/posts/basicsofbasics_osdev/</guid>
-      <description>Introduction: In a journey to understand how Operating systems works, I&#39;ll do an attempt of making a minimalistic operating system. This is the first blog that will discuss the main steps I followed to have it at this state. And also provide All resources I&#39;ve used. Resources: OsDevWiki Awesome Os EMPTY EMPTY STEPS: Building a Cross-Compiler Needed Knowledge to Procceed !! </description>
+      <description>Introduction: In a journey to understand how Operating systems works, I&#39;ll do an attempt of making a minimalistic operating system. This is the first blog that will discuss the main steps I followed to have it at this state. And also provide All resources I&#39;ve used. Resources: OsDevWiki Awesome Os EMPTY EMPTY STEPS: Building a Cross-Compiler Needed Knowledge to Procceed !! Boot Sector </description>
     </item>
     
   </channel>

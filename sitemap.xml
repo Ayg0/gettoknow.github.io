@@ -2,22 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://ayg0.github.io/gettoknow.github.io/tags/bios/</loc>
+    <lastmod>2023-02-01T18:45:02+01:00</lastmod>
+  </url><url>
+    <loc>https://ayg0.github.io/gettoknow.github.io/</loc>
+    <lastmod>2023-02-01T18:45:02+01:00</lastmod>
+  </url><url>
+    <loc>https://ayg0.github.io/gettoknow.github.io/tags/osdev/</loc>
+    <lastmod>2023-02-01T18:45:02+01:00</lastmod>
+  </url><url>
+    <loc>https://ayg0.github.io/gettoknow.github.io/posts/osmodes/</loc>
+    <lastmod>2023-02-01T18:45:02+01:00</lastmod>
+  </url><url>
+    <loc>https://ayg0.github.io/gettoknow.github.io/posts/</loc>
+    <lastmod>2023-02-01T18:45:02+01:00</lastmod>
+  </url><url>
+    <loc>https://ayg0.github.io/gettoknow.github.io/tags/</loc>
+    <lastmod>2023-02-01T18:45:02+01:00</lastmod>
+  </url><url>
+    <loc>https://ayg0.github.io/gettoknow.github.io/posts/bios/</loc>
+    <lastmod>2023-02-01T18:44:54+01:00</lastmod>
+  </url><url>
+    <loc>https://ayg0.github.io/gettoknow.github.io/posts/bootsector/</loc>
+    <lastmod>2023-02-01T18:41:24+01:00</lastmod>
+  </url><url>
     <loc>https://ayg0.github.io/gettoknow.github.io/posts/bootingsequence/</loc>
     <lastmod>2023-01-31T18:30:36+01:00</lastmod>
   </url><url>
     <loc>https://ayg0.github.io/gettoknow.github.io/tags/bootloader/</loc>
-    <lastmod>2023-01-31T18:30:36+01:00</lastmod>
-  </url><url>
-    <loc>https://ayg0.github.io/gettoknow.github.io/</loc>
-    <lastmod>2023-01-31T18:30:36+01:00</lastmod>
-  </url><url>
-    <loc>https://ayg0.github.io/gettoknow.github.io/tags/osdev/</loc>
-    <lastmod>2023-01-31T18:30:36+01:00</lastmod>
-  </url><url>
-    <loc>https://ayg0.github.io/gettoknow.github.io/posts/</loc>
-    <lastmod>2023-01-31T18:30:36+01:00</lastmod>
-  </url><url>
-    <loc>https://ayg0.github.io/gettoknow.github.io/tags/</loc>
     <lastmod>2023-01-31T18:30:36+01:00</lastmod>
   </url><url>
     <loc>https://ayg0.github.io/gettoknow.github.io/posts/osdevknowledge/</loc>
