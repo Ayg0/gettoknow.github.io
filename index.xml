@@ -31,7 +31,7 @@
       <pubDate>Wed, 01 Feb 2023 18:41:24 +0100</pubDate>
       
       <guid>https://ayg0.github.io/gettoknow.github.io/posts/bootsector/</guid>
-      <description></description>
+      <description>are you my 512 byte ? nah nah where are you my 0xAA55 ? BIOS And The Boot Sector: =&amp;gt; The Proccess: You&amp;#39;ve learned in previous chapters, The one taking control over the computer at the start up is the BIOS, after it&amp;#39;s checks (POST) it will try to load an operating system, It&amp;#39;s will look at the first 512 bye of each drive, the 512 byte of data called a sector, it&amp;#39;s will be bootable if it finds at the end of that 512 byte the bytes 0x55 0xAA, which are the magic number for a boot sector, than it will load that 512 byte and hand the control to it starting to execute the instructions inside, here where we should put the code to load more memory, change the mode from real mode to protected mode and so on.</description>
     </item>
     
     <item>
