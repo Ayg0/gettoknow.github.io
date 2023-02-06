@@ -6,7 +6,16 @@
     <description>Recent content in OsDev on GetToKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 01 Feb 2023 18:45:02 +0100</lastBuildDate><atom:link href="https://ayg0.github.io/gettoknow.github.io/tags/osdev/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 04 Feb 2023 18:08:46 +0100</lastBuildDate><atom:link href="https://ayg0.github.io/gettoknow.github.io/tags/osdev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>16BitMode</title>
+      <link>https://ayg0.github.io/gettoknow.github.io/posts/16bitmode/</link>
+      <pubDate>Sat, 04 Feb 2023 18:08:46 +0100</pubDate>
+      
+      <guid>https://ayg0.github.io/gettoknow.github.io/posts/16bitmode/</guid>
+      <description>Our journey starts in 16 bit mode, and the BIOS is the one for the job. Real Mode: =&amp;gt; Registers and Data: In Real Mode we are running in a 16 bit envirement, so the max numbers that a cpu can deal with at the time are 16 bit numbers, in case we needed to use two 32 bit numbers, the number of cycles needed to do the same instruction will double.</description>
+    </item>
+    
     <item>
       <title>OsModes</title>
       <link>https://ayg0.github.io/gettoknow.github.io/posts/osmodes/</link>
@@ -23,6 +32,15 @@
       
       <guid>https://ayg0.github.io/gettoknow.github.io/posts/bios/</guid>
       <description>BIOS: you need int 0x10 not int 0x13 The BIOS: =&amp;gt; What&#39;s the BIOS: BIOS (Basic Input/Output System) is a type of *firmware that provides an interface between computer&amp;#39;s hardware and software (OS), it&amp;#39;s stored on a *non-volatile memory chip on the mother board. The BIOS is the First program loaded When the computer is powered on, and it&amp;#39;s responsible for performing a series of system checks and initializations. =&amp;gt; BIOS ?</description>
+    </item>
+    
+    <item>
+      <title>BootSector</title>
+      <link>https://ayg0.github.io/gettoknow.github.io/posts/bootsector/</link>
+      <pubDate>Wed, 01 Feb 2023 18:41:24 +0100</pubDate>
+      
+      <guid>https://ayg0.github.io/gettoknow.github.io/posts/bootsector/</guid>
+      <description>are you my 512 byte ? nah nah where are you my 0xAA55 ? BIOS And The Boot Sector: =&amp;gt; The Proccess: You&amp;#39;ve learned in previous chapters, The one taking control over the computer at the start up is the BIOS, after it&amp;#39;s checks (POST) it will try to load an operating system, It&amp;#39;s will look at the first 512 bye of each drive, the 512 byte of data called a sector, it&amp;#39;s will be bootable if it finds at the end of that 512 byte the bytes 0x55 0xAA, which are the magic number for a boot sector, than it will load that 512 byte and hand the control to it starting to execute the instructions inside, here where we should put the code to load more memory, change the mode from real mode to protected mode and so on.</description>
     </item>
     
     <item>
@@ -58,7 +76,7 @@
       <pubDate>Fri, 27 Jan 2023 18:30:30 +0100</pubDate>
       
       <guid>https://ayg0.github.io/gettoknow.github.io/posts/basicsofbasics_osdev/</guid>
-      <description>Introduction: In a journey to understand how Operating systems works, I&#39;ll do an attempt of making a minimalistic operating system. This is the first blog that will discuss the main steps I followed to have it at this state. And also provide All resources I&#39;ve used. Resources: OsDevWiki Awesome Os EMPTY EMPTY STEPS: Building a Cross-Compiler Needed Knowledge to Procceed !! Boot Sector </description>
+      <description>Introduction: In a journey to understand how Operating systems works, I&#39;ll do an attempt of making a minimalistic operating system. This is the first blog that will discuss the main steps I followed to have it at this state. And also provide All resources I&#39;ve used. Resources: OsDevWiki Awesome Os Simple Operating System EMPTY EMPTY STEPS: Building a Cross-Compiler Needed Knowledge to Procceed !! Boot Sector Real Mode </description>
     </item>
     
   </channel>
