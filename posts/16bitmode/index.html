@@ -74,7 +74,7 @@
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          5 min read
+          8 min read
         </div>
         <div>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
@@ -92,7 +92,7 @@
 <pre tabindex="0"><code> In Real Mode we are running in a 16 bit envirement, so the max numbers that a cpu can deal with at the time are 16 bit numbers, in case we needed to use two 32 bit numbers, the number of cycles needed to do the same instruction will double.
  All x86 CPUs have 4 general purpose registers: ax, bx, cx and dx, that can be used to hold a word (two bytes) of data, the cpu can read and write to them faster than accessing the main memory, so they are the best at handling temporarily data.
 </code></pre><h3 id="-interrupts"><code>=&gt; Interrupts:</code></h3>
-<pre tabindex="0"><code> Interrupts are signals sent to the CPU by a hardware device (e.g to read from the keyboard), or a software program (int 0x10), they allow the CPU to temporarily stop whatever it&#39;s doing now and start the higher-priority task before returning to lower-priority task and finish it also.
+<pre tabindex="0"><code> Interrupts are signals sent to the CPU by a hardware device (the keyboard), or a software program (int 0x10), they allow the CPU to temporarily stop whatever it&#39;s doing now and start the higher-priority task before returning to lower-priority task and finish it also.
  Each interrupt is represented by an index in the interrupt vectpr, that contains pointers to the INTERRUPT SERVICE ROUTINES (ISRs). it&#39;s also a sequence of machine instructions that deals with specific interrupts, For Exmaple interrupt 0x10 couses the screen-related ISR to be invoked, while 0x13 invok the disk related I/O ISR.
 </code></pre><h3 id="-memory--for-now"><code>=&gt; Memory ... For Now:</code></h3>
 <pre tabindex="0"><code> So We want to use all of the BIOS mechanics to be able to print/read stuff and switch to 32 bit mode, if you thought that it&#39;s will be for free you&#39;re wrong. check this memory layout so you can understand better.	
@@ -108,14 +108,14 @@
 0x9fc00   |____________________________________________|
           |                FREE (638 KB)               |
           |                                            |
-0x7c00    |       *Loaded Boot Sector (512 byte)*      |
+0x7c00 ---|--&gt;    *Loaded Boot Sector (512 byte)*      |
 0x500     |____________________________________________|
           |           BIOS Data Area (256 byte)        |
 0x400     |____________________________________________|
           |       Interrupt Vector Table (1 KB)        |
 0x0       |____________________________________________|
 
- Well the BIOS is loader to the memory with all it&#39;s utilities and code, then the BIOS loads our code into address 0x7c00 so it&#39;s will be sure not to mess-up any data before, this will mean that our data will be offsetted with 0x7c00, accessing any data will be like:
+ Well the BIOS is loaded to the memory with all it&#39;s utilities and code, then the BIOS loads our code into address 0x7c00 so it&#39;s will be sure not to mess-up any data before, this will mean that our data will be offsetted with 0x7c00, accessing any data will be like:
 </code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ASM" data-lang="ASM"><span style="display:flex;"><span>	<span style="color:#a6e22e">mov</span> <span style="color:#66d9ef">al</span>, [<span style="color:#66d9ef">data</span> <span style="color:#960050;background-color:#1e0010">+</span> <span style="color:#ae81ff">0x7c00</span>] <span style="color:#75715e">; data should point to &#39;H&#39;, like C/C++ for example, but because of the offsetting we need to add 0x7c00 to the address then dereference it.
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">mov</span> <span style="color:#66d9ef">ah</span>, <span style="color:#ae81ff">0x0e</span>	<span style="color:#75715e">; indecate the teletype output routine
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">int</span> <span style="color:#ae81ff">0x10</span>		<span style="color:#75715e">; invoke the ISR
@@ -125,11 +125,11 @@
 </span></span></code></pre></div><pre tabindex="0"><code> Of course we can make our life easier by setting the org to 0x7c00 so it will automaticely add it to our addresses instead of us typing it each time:
  	[org 0x7c00]
 </code></pre><h3 id="-the-stack"><code>=&gt; The Stack:</code></h3>
-<pre tabindex="0"><code> The stack is a continues memory, that offers the solution to the limited amount of registers CPU have to hold temperory data, The stack offers two instructions PUSH and POP. Push allow us to store data into the top of stack, and pop allow us to retrieve the data at the top of the stack.
+<pre tabindex="0"><code> The stack is a continues memory, that offers the solution to the limited amount of registers CPU have to hold temperory data, The stack offers two main instructions PUSH and POP. Push allow us to store data into the top of stack, and pop allow us to retrieve the data at the top of the stack.
 
- The stack can be implemented in different ways, in our case it&#39;s implemented by two Special purpose registers BP (Base Pointer) and SP (Stack Pointer), we set the base pointer to somewhere far away from other codes (BIOS code for example), to not overwrite any important data when expanding the stack. When Pushing data into the stack we increment SP to point into it, and pop get us the data pointed to by SP and than decrement it.
+ The stack can be implemented in different ways, in our case it&#39;s implemented by two Special purpose registers BP (Base Pointer) and SP (Stack Pointer), we set the Both of them to somewhere far away from other codes (BIOS code for example), to not overwrite any important data when expanding the stack. So by pushing data into the stack we actually put it into memory and increment SP, and by poping data we get it from the stack we decrement SP.
 </code></pre><h3 id="-if--if-if-if--for-ifs"><code>=&gt; If ? If If If ? For Ifs:</code></h3>
-<pre tabindex="0"><code> Talking about coding an variables will make you wonder how can you use your everyday control structures in Assembly (if, else, for ...), Assembly offers instructions that will help you achieve that, and I&#39;ll give examples with the C code and it&#39;s alternative in Assembly.
+<pre tabindex="0"><code> Talking about coding and variables will make you wonder how can you use your everyday control structures in Assembly (if, else, for ...), Assembly offers instructions that will help you achieve that, and I&#39;ll give some examples with  C code and it&#39;s alternative in Assembly.
 </code></pre><h3 id="if-else"><code>If Else</code></h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C" data-lang="C"><span style="display:flex;"><span> <span style="color:#66d9ef">int</span> ax <span style="color:#f92672">=</span> <span style="color:#ae81ff">50</span>;
 </span></span><span style="display:flex;"><span> <span style="color:#66d9ef">int</span> bx <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>;
@@ -191,10 +191,77 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">jmp</span> <span style="color:#66d9ef">looop</span>	<span style="color:#75715e">; continue the loop
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>end:
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">jmp</span> <span style="color:#66d9ef">end</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">; our magic number and padding
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">times</span> <span style="color:#ae81ff">510</span> -( <span style="color:#66d9ef">$</span> - <span style="color:#66d9ef">$$</span> ) <span style="color:#66d9ef">db</span> <span style="color:#ae81ff">0</span>	
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">dw</span> <span style="color:#ae81ff">0xaa55</span>
-</span></span></code></pre></div>
+</span></span></code></pre></div><h3 id="functions-"><code>Functions ?:</code></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C" data-lang="C"><span style="display:flex;"><span><span style="color:#a6e22e">wow</span>(){
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;W&#34;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span>	cx <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span>	bx <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (cx <span style="color:#f92672">&gt;</span> bx)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">wow</span>();
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ASM" data-lang="ASM"><span style="display:flex;"><span> <span style="color:#960050;background-color:#1e0010">[</span><span style="color:#a6e22e">org</span> <span style="color:#ae81ff">0x7c00</span>]
+</span></span><span style="display:flex;"><span> <span style="color:#a6e22e">mov</span> <span style="color:#66d9ef">cx</span>, <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span> <span style="color:#a6e22e">mov</span> <span style="color:#66d9ef">bx</span>, <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span> <span style="color:#a6e22e">cmp</span> <span style="color:#66d9ef">cx</span>, <span style="color:#66d9ef">bx</span>
+</span></span><span style="display:flex;"><span> <span style="color:#a6e22e">jl</span>  <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span> <span style="color:#a6e22e">call</span> <span style="color:#66d9ef">wow</span> <span style="color:#75715e">; calling a function allow us to return and finish from the next instruction.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span> end:
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">jmp</span> <span style="color:#66d9ef">end</span>	<span style="color:#75715e">; infinite loop
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span> wow:
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">mov</span> <span style="color:#66d9ef">al</span>, <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#66d9ef">W</span><span style="color:#960050;background-color:#1e0010">&#39;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">mov</span> <span style="color:#66d9ef">ah</span>, <span style="color:#ae81ff">0x0e</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">int</span> <span style="color:#ae81ff">0x10</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">ret</span>			<span style="color:#75715e">; returning will restore the values of the registers and also return to where we called the function to procceed to the rest of the code.
+</span></span></span></code></pre></div><h3 id="orginize-to-analize"><code>Orginize to Analize:</code></h3>
+<pre tabindex="0"><code> We&#39;ve learned a lot so far and we will need to device our code into different files so we can make it more readable and reach each section.
+ For that we can include files, by that you tell the compiler to replace the include &#34;File.asm&#34; line with what&#39;s inside the file. As an example we can put our Wow function into it&#39;s own file wow.asm:
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ASM" data-lang="ASM"><span style="display:flex;"><span> <span style="color:#960050;background-color:#1e0010">[</span><span style="color:#a6e22e">org</span> <span style="color:#ae81ff">0x7c00</span>]
+</span></span><span style="display:flex;"><span> <span style="color:#a6e22e">mov</span> <span style="color:#66d9ef">cx</span>, <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span> <span style="color:#a6e22e">mov</span> <span style="color:#66d9ef">bx</span>, <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span> <span style="color:#a6e22e">cmp</span> <span style="color:#66d9ef">cx</span>, <span style="color:#66d9ef">bx</span>
+</span></span><span style="display:flex;"><span> <span style="color:#a6e22e">jl</span>  <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span> <span style="color:#a6e22e">call</span> <span style="color:#66d9ef">wow</span>
+</span></span><span style="display:flex;"><span> end:
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">jmp</span> <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span> <span style="color:#960050;background-color:#1e0010">%</span><span style="color:#a6e22e">include</span> <span style="color:#960050;background-color:#1e0010">&#34;</span><span style="color:#66d9ef">wow.asm</span><span style="color:#960050;background-color:#1e0010">&#34;</span>
+</span></span></code></pre></div><h3 id="have-a-tool-and-prepare"><code>Have a tool and prepare:</code></h3>
+<pre tabindex="0"><code> our code will get just bigger and bigger, and with that bugs will appear and we have no tool to work against them, we will deal with values and memory addresses, and to check if everything is working correcly we would like to read those values, and here where printHex routine will help, it takes the value as an argument in ax, and display it into the screen. You can find it inside print.asm with the print_str routine with explanation.
+</code></pre><h3 id="0xffff-too-low--segmentation-is-the-hero-"><code>0xffff too low ? Segmentation is the hero :</code></h3>
+<pre tabindex="0"><code> Well you&#39;ve made it now you can print and debug all memory addresses you want ... except max you can get is 0xffff(2^16), which is too low for an operating system to work with, but with the help of segmentation we can get even more and finally achieve the 1Mb limit.
+ Segmentation is implemented with different registers inside the x86 architecture which are cs (code segment),
+ ds (data segment), ss (stack segment) and es (extra segment it&#39;s used to access more data).
+ To demenstrate how this works, we can use our problem of the 0x7c00 offsetting, to handle it using segmentation we need to load the ds register with 0x7c0 so next time our program will be faced with something like:
+
+	let&#39;s say:      &#39;mov ax, [msg]&#39;
+
+	it&#39;s will do:   &#39;mov ax, [0x7c0 * 16 + msg]&#39; 
+
+ the program will use ds by default unless you explecitly use an other register such as ss for example:
+
+	&#39;mov ax, [ss:msg]&#39;
+
+  
+  Now you can now why we can reach 1Mb now (0xffff * 16 + 0xffff). When we switch to 32 bit mode we will use it to access even more memory.
+</code></pre><h3 id="i-have-the-power--still-512-byte"><code>I have the power ... still 512 byte:</code></h3>
+<pre tabindex="0"><code> well we have our 1Mb to play with, let&#39;s get more sectors loaded so we can have our operating system ready for 32 bit mode, When our BIOS loads the boot sector it stores the drive id into the dl register, storing it in a variable will be helpful when we want to read more from that drive, also thanks to the BIOS we don&#39;t need to worry about what type of storage we&#39;re using (USB, Hard Drive, Floppy Disk ...), using the BIOS disk routines (0x13) will put a layer of abstraction that will be handy in the future.
+ We used the BIOS interrupt 0x10 to write before, now we will use the 0x13, like when we set up things like the character to print and the color, Here also we need to specify some details:
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ASM" data-lang="ASM"><span style="display:flex;"><span>	<span style="color:#a6e22e">mov</span> [<span style="color:#66d9ef">Disk_id</span>], <span style="color:#66d9ef">dl</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">;[...] some code
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">mov</span> <span style="color:#66d9ef">ah</span>, <span style="color:#ae81ff">0x02</span>         <span style="color:#75715e">; BIOS read sector function
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">mov</span> <span style="color:#66d9ef">dl</span>, [<span style="color:#66d9ef">Disk_id</span>]    <span style="color:#75715e">; read drive [Disk_id]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">mov</span> <span style="color:#66d9ef">al</span>, [<span style="color:#66d9ef">num_sector</span>] <span style="color:#75715e">; number of sectors to read
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">mov</span> <span style="color:#66d9ef">ch</span>, <span style="color:#ae81ff">0x00</span>         <span style="color:#75715e">; select cylinder 0
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">mov</span> <span style="color:#66d9ef">dh</span>, <span style="color:#ae81ff">0x00</span>         <span style="color:#75715e">; select head 0
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">mov</span> <span style="color:#66d9ef">cl</span>, <span style="color:#ae81ff">0x02</span>         <span style="color:#75715e">; start reading from the 2nd sector (first one already loaded by the bios).
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">mov</span> <span style="color:#66d9ef">bx</span>, <span style="color:#ae81ff">0x9000</span>       <span style="color:#75715e">; where to put the data we&#39;ve got
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">int</span> <span style="color:#ae81ff">0x13</span>             <span style="color:#75715e">; BIOS interrupt
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">jc</span> <span style="color:#66d9ef">Reading_error</span>     <span style="color:#75715e">; if an error accured jump to the error routine.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">cmp</span> <span style="color:#66d9ef">al</span>, [<span style="color:#66d9ef">num_sector</span>] <span style="color:#75715e">; compare to see if we loaded all the sectors we needed.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">jne</span> <span style="color:#66d9ef">Reading_error</span>    <span style="color:#75715e">; jump to the error routine if they are not equale		
+</span></span></span></code></pre></div><pre tabindex="0"><code> We may run into errors while loading because of exceeding the boundries or maybe some genius removed the floppy disk, so we need to know when it happens.
+ It&#39;s worth noting that the Cylinder-Head-Sector (CHS) addressing is used.
+</code></pre>
     </div>
     <div class="post-footer">
       
