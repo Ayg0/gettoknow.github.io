@@ -6,7 +6,16 @@
     <description>Recent content in Posts on GetToKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 04 Feb 2023 18:08:46 +0100</lastBuildDate><atom:link href="https://ayg0.github.io/gettoknow.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 11 Feb 2023 15:56:43 +0100</lastBuildDate><atom:link href="https://ayg0.github.io/gettoknow.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>32BitMode</title>
+      <link>https://ayg0.github.io/gettoknow.github.io/posts/32bitmode/</link>
+      <pubDate>Sat, 11 Feb 2023 15:56:43 +0100</pubDate>
+      
+      <guid>https://ayg0.github.io/gettoknow.github.io/posts/32bitmode/</guid>
+      <description>One step backward, Two steps forward. Protected Mode: =&amp;gt; Preparations: Well for our operating system to make the switch from 16 bit to 32 bit we need to do some preparations, that involves saying good bye to the BIOS, setting up the GDT and making a lot of bugs while trying to make a driver for the keyboard. =&amp;gt; GDT: We used segmentation before in 16 bit mode, but here things work differently, in 32 bit we need to define The Global Descriptor Table(GDT), which is a structure where we define the descriptor of the segment we use, it&amp;#39;s contains various properties and flags that define how and what our segment will do, will we be able to read it ?</description>
+    </item>
+    
     <item>
       <title>16BitMode</title>
       <link>https://ayg0.github.io/gettoknow.github.io/posts/16bitmode/</link>
@@ -58,7 +67,7 @@
       <pubDate>Tue, 31 Jan 2023 17:56:29 +0100</pubDate>
       
       <guid>https://ayg0.github.io/gettoknow.github.io/posts/osdevknowledge/</guid>
-      <description>What and Why ? Knowledge that will be and is really helpful and needed as an OsDev, don&amp;#39;t worry it may look like a lot but ... there is no but it is a lot. =&amp;raquo; Boot Sequence =&amp;raquo; BIOS =&amp;raquo; Real/Protected/long Modes </description>
+      <description>What and Why ? Knowledge that will be and is really helpful and needed as an OsDev, don&amp;#39;t worry it may look like a lot but ... there is no but, it is a lot. =&amp;raquo; Boot Sequence =&amp;raquo; BIOS =&amp;raquo; Real/Protected/long Modes </description>
     </item>
     
     <item>
@@ -76,7 +85,7 @@
       <pubDate>Fri, 27 Jan 2023 18:30:30 +0100</pubDate>
       
       <guid>https://ayg0.github.io/gettoknow.github.io/posts/basicsofbasics_osdev/</guid>
-      <description>Introduction: In a journey to understand how Operating systems works, I&#39;ll do an attempt of making a minimalistic operating system. This is the first blog that will discuss the main steps I followed to have it at this state. And also provide All resources I&#39;ve used. Resources: OsDevWiki Awesome Os Simple Operating System EMPTY EMPTY STEPS: Building a Cross-Compiler Needed Knowledge to Procceed !! Boot Sector Real Mode </description>
+      <description>Introduction: In a journey to understand how Operating systems works, I&#39;ll do an attempt of making a minimalistic operating system called YonaOS it&#39;s will be available in GITHUB where you can clone, learn, and give feedback, I should warn you that this code and the concepts may not be perfectly correct/explained, and your feedback is what will improve it, do not hasitate to contact me :) This is the first blog that will discuss the main steps I followed to have it at this state.</description>
     </item>
     
   </channel>

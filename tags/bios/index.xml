@@ -6,7 +6,16 @@
     <description>Recent content in BIOS on GetToKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 01 Feb 2023 18:45:02 +0100</lastBuildDate><atom:link href="https://ayg0.github.io/gettoknow.github.io/tags/bios/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 04 Feb 2023 18:08:46 +0100</lastBuildDate><atom:link href="https://ayg0.github.io/gettoknow.github.io/tags/bios/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>16BitMode</title>
+      <link>https://ayg0.github.io/gettoknow.github.io/posts/16bitmode/</link>
+      <pubDate>Sat, 04 Feb 2023 18:08:46 +0100</pubDate>
+      
+      <guid>https://ayg0.github.io/gettoknow.github.io/posts/16bitmode/</guid>
+      <description>Our journey starts in 16 bit mode, and the BIOS is the one for the job. Real Mode: =&amp;gt; Registers and Data: In Real Mode we are running in a 16 bit envirement, so the max numbers that a cpu can deal with at the time are 16 bit numbers, in case we needed to use two 32 bit numbers, the number of cycles needed to do the same instruction will double.</description>
+    </item>
+    
     <item>
       <title>OsModes</title>
       <link>https://ayg0.github.io/gettoknow.github.io/posts/osmodes/</link>

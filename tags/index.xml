@@ -6,11 +6,11 @@
     <description>Recent content in Tags on GetToKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 04 Feb 2023 18:08:46 +0100</lastBuildDate><atom:link href="https://ayg0.github.io/gettoknow.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 11 Feb 2023 15:56:43 +0100</lastBuildDate><atom:link href="https://ayg0.github.io/gettoknow.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>OsDev</title>
       <link>https://ayg0.github.io/gettoknow.github.io/tags/osdev/</link>
-      <pubDate>Sat, 04 Feb 2023 18:08:46 +0100</pubDate>
+      <pubDate>Sat, 11 Feb 2023 15:56:43 +0100</pubDate>
       
       <guid>https://ayg0.github.io/gettoknow.github.io/tags/osdev/</guid>
       <description></description>
@@ -19,18 +19,9 @@
     <item>
       <title>BIOS</title>
       <link>https://ayg0.github.io/gettoknow.github.io/tags/bios/</link>
-      <pubDate>Wed, 01 Feb 2023 18:45:02 +0100</pubDate>
+      <pubDate>Sat, 04 Feb 2023 18:08:46 +0100</pubDate>
       
       <guid>https://ayg0.github.io/gettoknow.github.io/tags/bios/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>BootLoader</title>
-      <link>https://ayg0.github.io/gettoknow.github.io/tags/bootloader/</link>
-      <pubDate>Tue, 31 Jan 2023 18:30:36 +0100</pubDate>
-      
-      <guid>https://ayg0.github.io/gettoknow.github.io/tags/bootloader/</guid>
       <description></description>
     </item>
     
@@ -40,15 +31,6 @@
       <pubDate>Fri, 27 Jan 2023 19:08:36 +0100</pubDate>
       
       <guid>https://ayg0.github.io/gettoknow.github.io/tags/compiler/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>BareBones</title>
-      <link>https://ayg0.github.io/gettoknow.github.io/tags/barebones/</link>
-      <pubDate>Fri, 27 Jan 2023 18:30:30 +0100</pubDate>
-      
-      <guid>https://ayg0.github.io/gettoknow.github.io/tags/barebones/</guid>
       <description></description>
     </item>
     

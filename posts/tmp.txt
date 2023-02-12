@@ -1,0 +1,32 @@
+#### `; Code Segment:`
+    - Base address: set it to 0.
+	
+	- Limit: set it to the maximum number possible for a 20 bit number which is 0xfffff.
+	
+	- Present (1 bit): set it to 1 to indecate that the segment is used.
+
+    - Privilege(2 bit value from 0 to 3): defines the segment privilege, we will put it to 0 as it's the highest privilege ("ring").
+	
+	- Type (1 bit): set it to 1 if the segment is the DATA or the Code segment.
+	
+	- Code flag: This flag change the meaning of the 2 flags after it depending if weither we set it to 1 for the code segment or 0 for the Data segment.
+
+	- Conforming: define if we can execute the code from lower privilege segments, we set to 0 for no.
+
+	- Readable: define if we can read it or just execute this segment.
+
+	- Accessed: we set it to 0, this is ophten used for debuggin and virtual memory techniques, since the CPU sets the bit when it accesses the segment.
+	
+	- Granularity: when set it to 1 it multiplys the limit by 0x1000, which is a good thing so we will set it to one to get the full 4 GB of RAM.
+
+	- Mode bit: set it to 1 to inform that it's 32 bit and not 64 bit.
+	- ONLY_FOR_64_BIT (2 bits): only used in 64 bit so we will set it to 00.
+	this will cover all the bits for the code segment.
+#### `; Data Segment:`
+    everything will be the same except the 3 flags from the code flag:
+
+        - Code Flag: set to 0 because it's the data segment.
+	
+	    - Direction Flag: define the direction of memory growing downward (1), and upword (0), our base address starts from 0, so we need to set this flag to 0.
+	
+	    - Writable: we set it to 1 so we can write to the segment.
