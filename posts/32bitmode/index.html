@@ -71,7 +71,7 @@
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          3 min read
+          4 min read
         </div>
         <div>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
@@ -119,7 +119,10 @@
 </code></pre>
 <h3 id="-the-structure-to-define-a-segment"><code>; The Structure To Define A Segment:</code></h3>
 <p><img src="/gettoknow.github.io/GDT_Entry.png" alt="GDT TABLE"></p>
-
+<h3 id="-switching-to-32-bit-mode"><code>=&gt; Switching to 32 bit mode:</code></h3>
+<pre tabindex="0"><code> After defining the GDT, the switch to 32 bit protected mode is straight forward. First we need to load the GDT we&#39;ve constructed before with a special instruction called &#39;lgdt&#39;. Then we will disable all interrupts with the instruction &#39;cli&#39;, and by that we will be done with the BIOS. After that we will set the first bit of a special control register cr0, to indicate that the CPU now is working in 32 bit mode.
+ Now all what we need to do is forcing the cpu to complete any instructions currently executed (pipeline issues) in the 16 bit mode (if there is any), to fully swich and be sure that everything is working in the right mode, we can do that by doing a far jump, which is like the standard jump but we add the target segment at the begining which will be the Code Segment for us, also updating our registers will be handy, as our old values for them are useless now.
+</code></pre>
     </div>
     <div class="post-footer">
       

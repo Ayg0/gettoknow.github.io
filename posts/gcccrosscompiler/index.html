@@ -99,30 +99,38 @@
 	- most important part is that we've specified that the target machine does not have a complete operating system.
 </code></pre>
 <h2 id="-how-to-build-one-">&gt; How to build one ?</h2>
-<pre><code>	- Building a cross compilers varies from an OS to an other, I'm going to build this GCC-CrossCompiler in MacOs even tho building in in linux maybe easier because of the dependancies That are pre-installed there.
-
-	-&gt; Step 1:
-		- Installing HomeBrew which will be the package manager we will use to install all the necessary tools.
-
-	-&gt; Step 2:
-		- Installing dependancies simply use:
-			$&gt; brew install binutils bison flex gmp mpfr libmpc isl
-
-	-&gt; Step 3:
-		- Downloding and extracting the GCC source code:
-			$&gt; git clone git://gcc.gnu.org/git/gcc.git /Example/Disired/Working/Directory/gcc
-
-	-&gt; Step 4:
-		- Configuring GCC source code:
-			$&gt; ./configure --prefix=/WhereToInstall/i686-elf --target=i686-elf --disable-nls --enable-languages=c,c++ --without-headers --with-gmp=$(brew --prefix gmp) --with-mpfr=$(brew --prefix mpfr) --with-mpc=$(brew --prefix libmpc)
-
-	-&gt; Step 5:
-		- build and install the cross-compiler:
-			$&gt; make all-gcc ; make install-gcc
-
-	- If everything went correctly you should be able to use &quot;i686-elf-gcc -v&quot; command.
+<pre tabindex="0"><code> Building a cross compilers varies from an OS to an other, I&#39;m going to build this GCC-CrossCompiler in MacOs even tho building in in linux maybe easier because of the dependancies That are pre-installed there, once we do that we need to download, configure and install binutils and gcc.
+</code></pre><h2 id="-preparation-">&gt; preparation :</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>	brew install gmp mpfr libmpc	<span style="color:#75715e"># installing using brew</span>
+</span></span><span style="display:flex;"><span>	export CC<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>PATH_TO_LOCAL_GCC<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>	export LD<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>PATH_TO_LOCAL_GCC<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>	export PREFIX<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;~/TOOLS/i386elfgcc&#34;</span>	<span style="color:#75715e"># where you&#39;ll find the compiler, linker and other tools.</span>
+</span></span><span style="display:flex;"><span>	export TARGET<span style="color:#f92672">=</span>i386-elf
+</span></span><span style="display:flex;"><span>	export PATH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$PREFIX<span style="color:#e6db74">/bin:</span>$PATH<span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div><h2 id="-binutils-">&gt; binutils :</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>	mkdir /tmp/src
+</span></span><span style="display:flex;"><span>	cd /tmp/src
+</span></span><span style="display:flex;"><span>	curl -O http://ftp.gnu.org/gnu/binutils/binutils-2.24.tar.gz <span style="color:#75715e"># there is more recent versions.</span>
+</span></span><span style="display:flex;"><span>	tar xf binutils-2.24.tar.gz
+</span></span><span style="display:flex;"><span>	mkdir binutils-build
+</span></span><span style="display:flex;"><span>	cd binutils-build
+</span></span><span style="display:flex;"><span>	../binutils-2.24/configure --target<span style="color:#f92672">=</span>$TARGET --enable-interwork --enable-multilib --disable-nls --disable-werror --prefix<span style="color:#f92672">=</span>$PREFIX
+</span></span><span style="display:flex;"><span>	make all install
+</span></span></code></pre></div><h2 id="-gcc-">&gt; GCC :</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>	cd /tmp/src
+</span></span><span style="display:flex;"><span>	curl -O https://mirror.marwan.ma/gcc/releases/gcc-7.4.0/gcc-7.4.0.tar.gz <span style="color:#75715e"># Morocco have a mirror :) :O</span>
+</span></span><span style="display:flex;"><span>	tar xf gcc-7.4.0.tar.gz
+</span></span><span style="display:flex;"><span>	mkdir gcc-build
+</span></span><span style="display:flex;"><span>	cd gcc-build
+</span></span><span style="display:flex;"><span>	../gcc-7.4.0/configure --target<span style="color:#f92672">=</span>$TARGET --prefix<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$PREFIX<span style="color:#e6db74">&#34;</span> --disable-nls --disable-libssp --enable-languages<span style="color:#f92672">=</span>c,c++ --without-headers --disable-werror --with-gmp<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>brew --prefix gmp<span style="color:#66d9ef">)</span> --with-mpfr<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>brew --prefix mpfr<span style="color:#66d9ef">)</span> --with-mpc<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>brew --prefix libmpc<span style="color:#66d9ef">)</span> <span style="color:#75715e"># configured for both C and CPP</span>
+</span></span><span style="display:flex;"><span>	make all-gcc 
+</span></span><span style="display:flex;"><span>	make all-target-libgcc 
+</span></span><span style="display:flex;"><span>	make install-gcc 
+</span></span><span style="display:flex;"><span>	make install-target-libgcc 
+</span></span></code></pre></div><h2 id="-tips-">&gt; TIPS :</h2>
+<pre tabindex="0"><code>	- You&#39;ll find your desired tools in the $PREFIX location you specified before.
+	- Consider adding the path to those tool in the PATH variable so you&#39;ll not need to specify the whole path everytime you want to call them.
 </code></pre>
-
     </div>
     <div class="post-footer">
       
