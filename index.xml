@@ -6,7 +6,18 @@
     <description>Recent content on GetToKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 11 Feb 2023 15:56:43 +0100</lastBuildDate><atom:link href="https://ayg0.github.io/gettoknow.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 18 Feb 2023 12:54:28 +0100</lastBuildDate><atom:link href="https://ayg0.github.io/gettoknow.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>KernelDev</title>
+      <link>https://ayg0.github.io/gettoknow.github.io/posts/kerneldev/</link>
+      <pubDate>Sat, 18 Feb 2023 12:54:28 +0100</pubDate>
+      
+      <guid>https://ayg0.github.io/gettoknow.github.io/posts/kerneldev/</guid>
+      <description> No More Tutorials I guess, I want to work fully on the system now, feel free to reach to me :)
+Still all resources I used will be here and the code will be documented.
+inline assembly GCC Device management OS DEV (brokenthorn) VGA Hardware Great VGA Docs GDT And IDT </description>
+    </item>
+    
     <item>
       <title>32BitMode</title>
       <link>https://ayg0.github.io/gettoknow.github.io/posts/32bitmode/</link>

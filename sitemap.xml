@@ -2,19 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://ayg0.github.io/gettoknow.github.io/posts/32bitmode/</loc>
-    <lastmod>2023-02-11T15:56:43+01:00</lastmod>
-  </url><url>
     <loc>https://ayg0.github.io/gettoknow.github.io/</loc>
-    <lastmod>2023-02-11T15:56:43+01:00</lastmod>
+    <lastmod>2023-02-18T12:54:28+01:00</lastmod>
+  </url><url>
+    <loc>https://ayg0.github.io/gettoknow.github.io/posts/kerneldev/</loc>
+    <lastmod>2023-02-18T12:54:28+01:00</lastmod>
   </url><url>
     <loc>https://ayg0.github.io/gettoknow.github.io/tags/osdev/</loc>
-    <lastmod>2023-02-11T15:56:43+01:00</lastmod>
+    <lastmod>2023-02-18T12:54:28+01:00</lastmod>
   </url><url>
     <loc>https://ayg0.github.io/gettoknow.github.io/posts/</loc>
-    <lastmod>2023-02-11T15:56:43+01:00</lastmod>
+    <lastmod>2023-02-18T12:54:28+01:00</lastmod>
   </url><url>
     <loc>https://ayg0.github.io/gettoknow.github.io/tags/</loc>
+    <lastmod>2023-02-18T12:54:28+01:00</lastmod>
+  </url><url>
+    <loc>https://ayg0.github.io/gettoknow.github.io/posts/32bitmode/</loc>
     <lastmod>2023-02-11T15:56:43+01:00</lastmod>
   </url><url>
     <loc>https://ayg0.github.io/gettoknow.github.io/posts/16bitmode/</loc>
